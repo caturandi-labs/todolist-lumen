@@ -45,10 +45,10 @@ class TodosController extends Controller
         $todo = Todo::findOrFail($id);
         $todo->fill($request->all());
 
-        if($todo->isClean()) {
-            return $this->errorResponse('At leasr one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
-        $todo->save();
+        // if($todo->isClean()) {
+        //     return $this->errorResponse('At least one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
+        // }
+        $todo->update();
 
         return $this->successResponse($todo);
     }
