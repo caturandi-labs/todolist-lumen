@@ -43,11 +43,8 @@ class TodosController extends Controller
     {
         $this->validate($request, $this->rules);
         $todo = Todo::findOrFail($id);
-        $todo->fill($request->all());
-
-        // if($todo->isClean()) {
-        //     return $this->errorResponse('At least one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
-        // }
+        $todo->name = $request->input('name');
+        $todo->is_done = $request->input('is_done');
         $todo->update();
 
         return $this->successResponse($todo);
