@@ -41,12 +41,9 @@ class TodosController extends Controller
 
     public function update(Request $request,  int $id)
     {
-        $this->validate($request, $this->rules);
         $todo = Todo::findOrFail($id);
-        $todo->name = $request->input('name');
         $todo->is_done = $request->input('is_done');
         $todo->update();
-
         return $this->successResponse($todo);
     }
 
