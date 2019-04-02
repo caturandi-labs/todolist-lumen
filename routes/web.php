@@ -20,3 +20,10 @@ $router->get('/todos/{id}', 'TodosController@show');
 $router->post('/todos', 'TodosController@store');
 $router->patch('/todos/{id}', 'TodosController@update');
 $router->delete('/todos/{id}', 'TodosController@destroy');
+
+
+$router->get('/articles', 'ArticlesController@index');
+$router->get('/articles/{id}', 'ArticlesController@show');
+$router->post('/articles', 'ArticlesController@store');
+$router->patch('/articles/{id}', 'ArticlesController@update');
+$router->delete('/articles/{id}', 'ArticlesController@destroy');

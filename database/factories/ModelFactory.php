@@ -16,3 +16,12 @@ $factory->define(App\Todo::class, function (Faker\Generator $faker) {
         'name' => $faker->name('male'),
     ];
 });
+
+
+$factory->define(App\Article::class, function (Faker\Generator $faker) {
+    return [
+        'post_title' => $faker->text($maxNbChars = 20) ,
+        'content' => $faker->text($maxNbChars = 300),
+        'image' => $faker->imageUrl($width = 640, $height = 480) 
+    ];
+});
