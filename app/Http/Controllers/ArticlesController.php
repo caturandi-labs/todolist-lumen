@@ -22,13 +22,13 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        return $this->successResponse(Article::all());
+        return response()->json(Article::all(),200);
     }
 
     public function show(int $id)
     {
         $article = Article::findOrFail($id);
-        return $this->successResponse($article);
+        return response()->json($article,200);
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class ArticlesController extends Controller
         }
 
         $article = Article::create($request->all());
-        return $this->successResponse($article, Response::HTTP_CREATED);
+        return response()->json($article,200);
 
     }
 
