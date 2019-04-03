@@ -15,6 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->post('/login', 'Auth\LoginController@index');
+
 $router->get('/todos', 'TodosController@index');
 $router->get('/todos/{id}', 'TodosController@show');
 $router->post('/todos', 'TodosController@store');
