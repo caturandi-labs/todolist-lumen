@@ -35,7 +35,7 @@ class LoginController extends Controller
                     return response()->json($res);
                 }
             }else{
-                $res['success'] = true;
+                $res['success'] = false;
                 $res['message'] = 'You username or password incorrect!';
                 return response($res);
             }
