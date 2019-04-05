@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -22,6 +24,14 @@ $router->get('/todos/{id}', 'TodosController@show');
 $router->post('/todos', 'TodosController@store');
 $router->patch('/todos/{id}', 'TodosController@update');
 $router->delete('/todos/{id}', 'TodosController@destroy');
+
+$router->group(['prefix' => 'api/v1/'], function () use ($router) {
+    $router->get('/todos', 'TodosFlutterController@index');
+	// $router->get('/todos/{id}', 'TodosFlutterController@show');
+	// $router->post('/todos', 'TodosFlutterController@store');
+	// $router->patch('/todos/{id}', 'TodosFlutterController@update');
+	// $router->delete('/todos/{id}', 'TodosFlutterController@destroy');
+});
 
 
 $router->get('/articles', 'ArticlesController@index');
